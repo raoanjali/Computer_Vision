@@ -1,0 +1,15 @@
+clc
+clear
+A = imread('lena.bmp');
+imshow(A)
+Gx = Gaussian1dx(5,1);
+C = conv2(double (A),double(Gx));
+C = uint8(C);
+
+imshow(C)
+
+Gy = Gaussian1dy(5,1);
+D = conv2(double(C),double(Gy));
+D = uint8(D);
+
+imshow(D)

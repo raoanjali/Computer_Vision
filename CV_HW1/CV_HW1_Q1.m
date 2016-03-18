@@ -1,0 +1,22 @@
+clc;
+clear;
+A= imread('lena.bmp');
+B = imread('lena_noise.bmp');
+G1 = Gaussian (5,1);
+G2 = Gaussian (11,3);
+C = conv2(double(A),double(G1));
+D = conv2(double (A),double (G2));
+E = conv2(double (B),double (G1));
+F= conv2(double (B),double (G2));
+C = uint8(C);
+D = uint8(D);
+E = uint8(E);
+F = uint8(F);
+
+subplot (2,3,1);
+ imshow(A);
+subplot(2,3,2), imshow(C);
+subplot(2,3,3), imshow(D);
+subplot(2,3,4), imshow(B);
+subplot(2,3,5), imshow(E);
+subplot(2,3,6), imshow(F);
